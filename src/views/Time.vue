@@ -1,11 +1,8 @@
 <template>
-  <div class="time">
-    <TimeDisplay msg="Time" />
-  </div>
+  <TimeDisplay msg="Time" />
 </template>
 
 <script>
-
 import TimeDisplay from "@/components/TimeDisplay.vue";
 
 export default {

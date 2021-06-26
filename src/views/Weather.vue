@@ -1,7 +1,5 @@
 <template>
-  <div class="Weather">
-    <WeatherReview />
-  </div>
+  <WeatherReview />
 </template>
 
 <script>
@@ -45,7 +43,11 @@ export default {
           throw new Error("Некорректный запрос");
         });
     },
-   
+
+    disableError() {
+      this.error = false;
+      this.fromInput = "";
+    }
   }
 };
 </script>

@@ -6,7 +6,7 @@
       type="text"
       placeholder="Введите город"
       v-model="$parent.fromInput"
-      @focus="$parent.error = false"
+      @focus="$parent.disableError()"
     />
     <span class="weather-error" v-show="$parent.error">такого города нет</span>
     <div class="weather__wrp-button">
