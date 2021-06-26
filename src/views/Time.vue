@@ -1,5 +1,5 @@
 <template>
-  <TimeDisplay msg="Time" />
+  <TimeDisplay />
 </template>
 
 <script>
