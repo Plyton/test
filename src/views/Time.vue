@@ -1,15 +1,12 @@
 <template>
-  <TimeDisplay />
+  <div class="time">
+    <h1>{{ clock }}</h1>
+  </div>
 </template>
 
 <script>
-import TimeDisplay from "@/components/TimeDisplay.vue";
-
 export default {
   name: "Time",
-  components: {
-    TimeDisplay
-  },
   data() {
     return {
       clock: "",

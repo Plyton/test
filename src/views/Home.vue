@@ -1,14 +1,12 @@
 <template>
-  <HelloWorld msg="Welcome to my app" />
+  <div class="greetings">
+    <img alt="logo" src="../assets/logo.png" />
+    <h1>"Welcome to my app"</h1>
+  </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
-  name: "Home",
-  components: {
-    HelloWorld
-  }
+  name: "Home"
 };
 </script>

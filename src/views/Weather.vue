@@ -1,5 +1,5 @@
 <template>
-  <WeatherReview />
+  <WeatherReview :item="items" />
 </template>
 
 <script>
@@ -39,7 +39,6 @@ export default {
           if (this.fromInput) {
             this.error = true;
           }
-          console.log(this.error);
           throw new Error("Некорректный запрос");
         });
     },
