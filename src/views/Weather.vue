@@ -1,20 +1,28 @@
 <template>
-  <WeatherReview :item="items" />
+  <div class="weather">
+    <InputCity ref="input"/>
+    <span class="weather__error-text" v-show="error">такого города нет</span>
+    <div>
+      <button class="weather__send-btn" @click="get()">Показать погоду</button>
+    </div>
+    <WeatherReview :item="items" />
+  </div>
 </template>
 
 <script>
 import WeatherReview from "@/components/WeatherReview.vue";
+import InputCity from "@/components/InputCity.vue";
 
 export default {
   name: "Weather",
   components: {
-    WeatherReview
+    WeatherReview,
+    InputCity
   },
   data() {
     return {
       show: false,
       error: false,
-      fromInput: "",
       items: {}
     };
   },
@@ -22,7 +30,7 @@ export default {
   methods: {
     get() {
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${this.fromInput}&APPID=d9cc3d8bf5d0942d3b954aad9c4e7acd&units=metric&lang=ru`
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.$refs.input.fromInput}&APPID=d9cc3d8bf5d0942d3b954aad9c4e7acd&units=metric&lang=ru`
       )
         .then(d => d.json())
         .then(data => {
@@ -36,16 +44,11 @@ export default {
           this.show = true;
         })
         .catch(() => {
-          if (this.fromInput) {
+          if (this.$refs.input.fromInput) {
             this.error = true;
           }
           throw new Error("Некорректный запрос");
         });
-    },
-
-    disableError() {
-      this.error = false;
-      this.fromInput = "";
     }
   }
 };
